@@ -2,10 +2,14 @@
 <html>
     <head>
         <title>FRCSpread</title>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen|Righteous" rel="stylesheet">
         <link href="main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1>FRCSpread</h1>
-        <p>Testing 123</p>
+        <div class="content">
+            <h1>FRCSpread</h1>
+            <input type="text" id="tag"><br>
+            <button onclick="window.location.href=`/spread/${tag.value}`">Go</button>
+        </div>
     </body>
 </html>

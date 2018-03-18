@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FRCSpread</title>
+        <link href="../main.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script>
+        var spreads = JSON.parse(atob('<%= spreads %>'));
+        window.onload = function(){
+            let data = [
+                {x: spreads.m, type: 'box', name: 'ALL<% if(!completion.qm || !completion.qf || !completion.sf || !completion.f){ %>*<% } %>', boxmean: 'sd'},
+                {x: spreads.qm, type: 'box', name: 'QM<% if(!completion.qm){ %>*<% } %>', boxmean: 'sd'},
+                {x: spreads.qf, type: 'box', name: 'QF<% if(!completion.qf){ %>*<% } %>', boxmean: 'sd'},
+                {x: spreads.sf, type: 'box', name: 'SF<% if(!completion.sf){ %>*<% } %>', boxmean: 'sd'},
+                {x: spreads.f, type: 'box', name: 'F<% if(!completion.f){ %>*<% } %>', boxmean: 'sd'}
+            ];
+            Plotly.newPlot('cm',data.reverse(),{
+                showlegend: false, 
+                xaxis: {
+                    title: 'Spread'
+                },
+                plot_bgcolor: '#222',
+                paper_bgcolor: '#222',
+                font: {
+                    family:'Oxygen,sans-serif',
+                    size: 12,
+                    color: '#eee'
+                }
+            });
+        }
+        window.onresize = function() {
+            Plotly.Plots.resize('cm');
+        };
+        </script>
+    </head>
+    <body>
+        <div class="chart" id="cm"></div>
+    </body>
+</html>
