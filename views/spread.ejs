@@ -2,7 +2,51 @@
 <html>
     <head>
         <title>FRCSpread</title>
-        <link href="../main.css" rel="stylesheet" type="text/css">
+        <style>
+            * {
+                text-align: center;
+                overflow-y: hidden;
+                font-family: "Oxygen";
+                user-select: none;
+            }
+            body {
+                margin: 0;
+                background-color: #222;
+                color: #eee;
+
+            }
+            h1 {
+                font-family: "Righteous";
+                text-transform: uppercase;
+            }
+            .chart {
+                width: 100vw;
+                height: 100vh;
+                margin: 0 auto;
+            }
+            .content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            input {
+                border-radius: 8px;
+                border: none;
+                outline: none !important;
+                width: 100%;
+            }
+            button {
+                border-radius: 8px;
+                padding: 7px;
+                border: none;
+                outline: none;
+                background-color: #eee;
+                margin-top: 8px;
+                width: 100%;
+                cursor: pointer;
+            }
+            </style>
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script>
